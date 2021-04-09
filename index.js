@@ -15,7 +15,7 @@ const run = async () => {
     }, randomFact)
 
     await page.screenshot({ path: `${time}.png` })
-    
+
     const date = new Date(Date.now())
     const time = date.getDate() + '_' + date.getHours()
     fs.writeFileSync(`${time}.log`, randomFact)
@@ -23,6 +23,4 @@ const run = async () => {
     await browser.close()
 }
 
-cron.schedule('0 * * * *', () => {
-    run()
-})
+run()
