@@ -16,8 +16,8 @@ const run = async () => {
         field.value = randomFact
     }, randomFact)
 
-    const time = date.getDate() + '_' + date.getHours()
     const date = new Date(Date.now())
+    const time = date.getDate() + '_' + date.getHours()
     
     await page.screenshot({ path: `${time}.png` })
 
