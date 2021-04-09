@@ -3,7 +3,9 @@ const dogFacts = require('dog-facts')
 const cron = require('node-cron')
 const fs = require('fs')
 const run = async () => {
-    const browser = await puppeteer.launch()
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    })
     const page = await browser.newPage()
     await page.goto('https://eli5.io')
     await page.waitForSelector('#crisp-chatbox')
