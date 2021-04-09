@@ -19,6 +19,6 @@ const run = async () => {
     await browser.close()
 }
 
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('0 * * * *', () => {
     run()
   })
