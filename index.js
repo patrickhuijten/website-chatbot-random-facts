@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer')
 const dogFacts = require('dog-facts')
-const cron = require('node-cron')
 const fs = require('fs')
 const sleep = require('sleep-promise')
 const run = async () => {

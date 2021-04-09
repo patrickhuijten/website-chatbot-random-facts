@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "dog-facts": "^1.0.3",
-    "node-cron": "^3.0.0",
     "puppeteer": "^8.0.0",
     "random-facts": "^1.0.6",
     "sleep-promise": "^9.1.0"
