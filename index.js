@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const dogFacts = require('dog-facts')
 const cron = require('node-cron')
-
+const fs = require('fs')
 const run = async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
@@ -14,11 +14,15 @@ const run = async () => {
         field.value = randomFact
     }, randomFact)
 
-    //await page.click('.cc-13gu')
-    await page.screenshot({ path: 'example.png' })
+    await page.screenshot({ path: `${time}.png` })
+    
+    const date = new Date(Date.now())
+    const time = date.getDate() + '_' + date.getHours()
+    fs.writeFileSync(`${time}.log`, randomFact)
+    await page.click('.cc-13gu')
     await browser.close()
 }
 
 cron.schedule('0 * * * *', () => {
     run()
-  })
+})
