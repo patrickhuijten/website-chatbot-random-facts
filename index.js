@@ -16,10 +16,11 @@ const run = async () => {
         field.value = randomFact
     }, randomFact)
 
+    const time = date.getDate() + '_' + date.getHours()
+    const date = new Date(Date.now())
+    
     await page.screenshot({ path: `${time}.png` })
 
-    const date = new Date(Date.now())
-    const time = date.getDate() + '_' + date.getHours()
     fs.writeFileSync(`${time}.log`, randomFact)
     await page.click('.cc-13gu')
     await browser.close()
